@@ -87,6 +87,19 @@ body.locked .hero .rv{opacity:0 !important;transform:translateY(30px) !important
 .nav a:hover,.nav a.active{color:var(--green2)}
 #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(to right,var(--green),var(--cyan),var(--purple));z-index:500;width:0}
 
+/* ---- botón de música ---- */
+.mus{position:fixed;bottom:1.4rem;right:1.4rem;z-index:600;width:52px;height:52px;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:var(--space);
+  background:radial-gradient(circle at 38% 32%,#b6ff5c,#8bc34a 70%,#6f9e33);
+  border:2px solid rgba(255,255,255,.5);
+  box-shadow:0 6px 18px -6px rgba(139,195,74,.7),0 0 0 4px rgba(139,195,74,.15);
+  transition:transform .3s,box-shadow .3s}
+.mus svg{width:20px;height:20px}
+.mus:hover,.mus:active{transform:scale(1.08)}
+.mus.on{animation:musPulse 1.4s ease-in-out infinite}
+@keyframes musPulse{0%,100%{box-shadow:0 6px 18px -6px rgba(139,195,74,.7),0 0 0 4px rgba(139,195,74,.15)}50%{box-shadow:0 6px 22px -4px rgba(139,195,74,.9),0 0 0 8px rgba(139,195,74,.08)}}
+@media(prefers-reduced-motion:reduce){.mus.on{animation:none}}
+
 /* ---- secciones ---- */
 section{position:relative;z-index:1;padding:clamp(4rem,11vw,7rem) clamp(1.2rem,5vw,3rem)}
 .wrap{max-width:920px;margin:0 auto;text-align:center}
@@ -173,6 +186,13 @@ footer{position:relative;z-index:1;text-align:center;padding:4rem 1.5rem 3.5rem;
 <body class="locked">
 
 <div class="stars"></div><div class="stars2"></div><div class="stars3"></div>
+
+<!-- música -->
+<audio id="bgm" loop preload="auto"><source src="music.mp3" type="audio/mpeg"></audio>
+<button class="mus" id="mus" onclick="toggleMusic(event)" aria-label="Música">
+  <svg id="mus-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  <svg id="mus-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+</button>
 
 <!-- ══ PORTADA ══ -->
 <div id="splash">
@@ -339,11 +359,33 @@ window.addEventListener('load', () => {
   setTimeout(()=> st.classList.add('name-in'), 1000);
   setTimeout(()=> document.getElementById('tap').classList.add('show'), 1600);
 });
+/* ─── Música ─── */
+const bgm = document.getElementById('bgm');
+let musicPlaying = false;
+function setMus(p){
+  musicPlaying = p;
+  document.getElementById('mus-play').style.display  = p ? 'none' : '';
+  document.getElementById('mus-pause').style.display = p ? '' : 'none';
+  document.getElementById('mus').classList.toggle('on', p);
+}
+if (bgm){
+  bgm.addEventListener('play',  ()=> setMus(true));
+  bgm.addEventListener('pause', ()=> setMus(false));
+}
+function toggleMusic(e){
+  if(e) e.stopPropagation();
+  if(!bgm) return;
+  if(musicPlaying){ bgm.pause(); }
+  else { bgm.muted=false; bgm.volume=0.6; bgm.play().catch(()=>{}); }
+}
+
 let opening=false;
 function enterInvitation(){
   if(opening) return; opening=true;
   const st=document.getElementById('launchStage');
   st.classList.add('launch');
+  // música automática al abrir (gesto del usuario = permitido)
+  if(bgm){ bgm.muted=false; bgm.volume=0.6; bgm.play().catch(()=>{}); }
   setTimeout(()=> document.getElementById('splash').classList.add('gone'), 850);
   setTimeout(()=> document.body.classList.remove('locked'), 1000);
 }
