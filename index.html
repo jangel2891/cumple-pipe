@@ -103,10 +103,9 @@ section{position:relative;z-index:1;padding:clamp(4rem,11vw,7rem) clamp(1.2rem,5
 .hero-emb{width:clamp(150px,40vw,240px);margin:0 auto 1.2rem;filter:drop-shadow(0 0 24px rgba(79,214,255,.4))}
 .hero-emb .ring{transform-origin:50% 50%;animation:spin 30s linear infinite}
 /* foto de Pipe con alas de Buzz */
-.pipe-wrap{position:relative;width:clamp(150px,42vw,240px);margin:0 auto 1rem;animation:floaty 5.5s ease-in-out infinite}
-.pipe-wrap .aura{position:absolute;inset:-8% -14% -2%;background:radial-gradient(ellipse at 50% 42%,rgba(124,58,237,.5),rgba(139,195,74,.16) 46%,transparent 72%);filter:blur(12px);z-index:0}
-.pipe-wrap .wings{position:absolute;top:15%;left:50%;transform:translateX(-50%);width:168%;z-index:1;filter:drop-shadow(0 0 16px rgba(139,195,74,.45))}
-.pipe-wrap .pipe{position:relative;z-index:2;width:100%;height:auto;display:block;filter:drop-shadow(0 16px 26px rgba(0,0,0,.55))}
+.pipe-wrap{position:relative;width:max-content;max-width:90vw;margin:0 auto 1rem;animation:floaty 5.5s ease-in-out infinite}
+.pipe-wrap .aura{position:absolute;inset:-10% -22% -2%;background:radial-gradient(ellipse at 50% 42%,rgba(124,58,237,.5),rgba(139,195,74,.16) 46%,transparent 72%);filter:blur(12px);z-index:0}
+.pipe-wrap .pipe{position:relative;z-index:2;height:clamp(215px,40vh,300px);width:auto;display:block;filter:drop-shadow(0 16px 26px rgba(0,0,0,.55))}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @media(prefers-reduced-motion:reduce){.pipe-wrap{animation:none}}
 .hero-hi{font-family:var(--tech);font-weight:700;font-size:clamp(.6rem,2.6vw,.8rem);letter-spacing:.3em;text-transform:uppercase;color:var(--green2);margin-bottom:.4rem}
@@ -218,16 +217,6 @@ footer{position:relative;z-index:1;text-align:center;padding:4rem 1.5rem 3.5rem;
 <section class="hero" id="inicio">
   <div class="pipe-wrap rv" aria-hidden="false">
     <div class="aura"></div>
-    <svg class="wings" viewBox="0 0 460 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g id="wingR">
-        <path d="M230 150 C255 78 345 62 410 92 C452 112 456 152 412 172 C346 200 258 206 230 158 Z" fill="#ffffff" fill-opacity=".93" stroke="#7c3aed" stroke-width="5"/>
-        <path d="M248 150 C270 96 340 84 392 108 C424 124 428 152 394 168 C342 190 268 194 248 156 Z" fill="#8bc34a" fill-opacity=".92"/>
-        <path d="M262 132 C300 116 350 112 388 126" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-        <path d="M262 168 C300 180 348 182 386 170" stroke="#5a8f24" stroke-width="3" stroke-linecap="round" opacity=".6"/>
-        <circle cx="410" cy="132" r="15" fill="#ff4d5e" stroke="#b3132a" stroke-width="2"/>
-      </g>
-      <use href="#wingR" transform="translate(460,0) scale(-1,1)"/>
-    </svg>
     <img class="pipe" src="pipe.png?v=1" alt="Pipe con su traje de Space Ranger" width="407" height="1047">
   </div>
   <p class="hero-hi rv d1">Prepárate para la misión de</p>
