@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>¡Pipe cumple 3! · Misión Espacial</title>
+<!-- Vista previa al compartir -->
+<meta name="description" content="¡Estás invitado a la misión espacial de Pipe! 8 de Agosto · Sky Zone Plaza Claro.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cumpleaños de Pipe">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="🚀 ¡Pipe cumple 3! · Misión Espacial">
+<meta property="og:description" content="¡Al infinito y más allá! Acompáñanos el 8 de Agosto en Sky Zone Plaza Claro. Toca para abrir tu invitación.">
+<meta property="og:image" content="https://REEMPLAZAR/og.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🚀 ¡Pipe cumple 3! · Misión Espacial">
+<meta name="twitter:description" content="¡Al infinito y más allá! 8 de Agosto · Sky Zone Plaza Claro.">
+<meta name="twitter:image" content="https://REEMPLAZAR/og.jpg?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Luckiest+Guy&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --space:#070b26; --space2:#111a4d; --space3:#1b2a6b;
+  --green:#8bc34a; --green2:#a6e05a; --greenGlow:#b6ff5c;
+  --purple:#7c3aed; --purple2:#a06bff;
+  --red:#ff4d5e; --yellow:#ffd23f; --cyan:#4fd6ff;
+  --white:#ffffff; --ink:#eaf0ff; --mist:#a9b6e6;
+  --fun:'Luckiest Guy',cursive; --disp:'Fredoka',sans-serif; --tech:'Orbitron',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--disp);background:var(--space);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--space2)}::-webkit-scrollbar-thumb{background:var(--purple);border-radius:3px}
+
+/* ---- campo de estrellas ---- */
+.stars,.stars2,.stars3{position:fixed;inset:0;pointer-events:none;z-index:0}
+.stars{background-image:radial-gradient(1.4px 1.4px at 20% 30%,#fff,transparent),radial-gradient(1.2px 1.2px at 70% 60%,#cfe3ff,transparent),radial-gradient(1.6px 1.6px at 40% 80%,#fff,transparent),radial-gradient(1.2px 1.2px at 85% 25%,#fff,transparent),radial-gradient(1.3px 1.3px at 55% 15%,#bcd,transparent),radial-gradient(1.5px 1.5px at 15% 65%,#fff,transparent);background-repeat:repeat;background-size:420px 420px;animation:tw 4s ease-in-out infinite}
+.stars2{background-image:radial-gradient(1.1px 1.1px at 30% 50%,#fff,transparent),radial-gradient(1px 1px at 80% 40%,#9fb,transparent),radial-gradient(1.2px 1.2px at 60% 75%,#fff,transparent),radial-gradient(1px 1px at 10% 20%,#cff,transparent);background-repeat:repeat;background-size:300px 300px;animation:tw 6s ease-in-out infinite .5s;opacity:.7}
+.stars3{background-image:radial-gradient(2px 2px at 50% 35%,#ffe9a8,transparent),radial-gradient(1.8px 1.8px at 25% 75%,#bff,transparent);background-repeat:repeat;background-size:600px 600px;animation:tw 8s ease-in-out infinite 1s;opacity:.6}
+@keyframes tw{0%,100%{opacity:.5}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.stars,.stars2,.stars3{animation:none}}
+
+/* ---- reveal ---- */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+body.locked .hero .rv{opacity:0 !important;transform:translateY(30px) !important}
+
+/* ---- SPLASH / portada ---- */
+#splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse 120% 90% at 50% 20%,#1a246b 0%,#0b1030 55%,#05081e 100%);
+  transition:opacity 1s ease,visibility 1s ease}
+#splash.gone{opacity:0;visibility:hidden;pointer-events:none}
+.launch-stage{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1.3rem;cursor:pointer;padding:1.5rem;text-align:center}
+.launch-stage.intro .badge{opacity:0;transform:scale(.9)}
+.lc-hi{font-family:var(--tech);font-weight:700;font-size:clamp(.6rem,2.6vw,.8rem);letter-spacing:.32em;text-transform:uppercase;color:var(--green2);
+  opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s ease;text-shadow:0 0 12px rgba(139,195,74,.5)}
+.lc-name{font-family:var(--fun);font-size:clamp(1.5rem,7vw,2.6rem);color:#fff;line-height:1.1;max-width:90vw;overflow-wrap:break-word;
+  text-shadow:0 2px 0 var(--purple),0 0 18px rgba(124,58,237,.6);
+  opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s ease}
+.launch-stage.hi-in .lc-hi{opacity:1;transform:none}
+.launch-stage.name-in .lc-name{opacity:1;transform:none}
+/* insignia / cohete */
+.badge{position:relative;width:clamp(190px,60vw,300px);aspect-ratio:1;transition:transform .8s cubic-bezier(.5,-0.4,.4,1.4),opacity .8s ease}
+.badge svg{width:100%;height:100%;filter:drop-shadow(0 0 26px rgba(124,58,237,.55))}
+.badge .ring{transform-origin:50% 50%;animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.launch-stage.launch .badge{transform:translateY(-130vh) rotate(-8deg) scale(.7)}
+.tap{font-family:var(--disp);font-weight:600;font-size:clamp(1rem,4.5vw,1.4rem);color:var(--yellow);letter-spacing:.02em;
+  opacity:0;text-shadow:0 0 14px rgba(255,210,63,.5);max-width:92vw}
+.tap.show{animation:tapIn .8s ease forwards,pulse 2.2s ease-in-out 1s infinite}
+@keyframes tapIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+/* ---- NAV ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:center;gap:clamp(.9rem,4vw,2rem);
+  padding:.9rem 1rem;transition:background .5s,padding .4s}
+.nav.s{background:rgba(9,13,42,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.4)}
+.nav a{font-family:var(--tech);font-weight:500;font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist);transition:color .25s}
+.nav a:hover,.nav a.active{color:var(--green2)}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(to right,var(--green),var(--cyan),var(--purple));z-index:500;width:0}
+
+/* ---- secciones ---- */
+section{position:relative;z-index:1;padding:clamp(4rem,11vw,7rem) clamp(1.2rem,5vw,3rem)}
+.wrap{max-width:920px;margin:0 auto;text-align:center}
+.cap{font-family:var(--tech);font-weight:700;font-size:clamp(.56rem,2.2vw,.72rem);letter-spacing:.26em;text-transform:uppercase;color:var(--green2);margin-bottom:.7rem;text-shadow:0 0 12px rgba(139,195,74,.4);overflow-wrap:break-word}
+.htitle{font-family:var(--fun);font-size:clamp(1.7rem,6.6vw,3.2rem);color:#fff;line-height:1.05;text-shadow:0 3px 0 var(--purple),0 0 22px rgba(124,58,237,.5)}
+.lead{font-family:var(--disp);font-weight:400;font-size:clamp(1rem,2.4vw,1.2rem);line-height:1.7;color:var(--ink);max-width:min(92%,34ch);margin:1.1rem auto 0}
+.orn{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:2rem auto 0}
+.orn .l{height:2px;width:60px;background:linear-gradient(to right,transparent,var(--green))}
+.orn .l.r{background:linear-gradient(to left,transparent,var(--green))}
+.orn .st{color:var(--yellow);font-size:1rem}
+
+/* ---- HERO ---- */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.3rem 4rem;overflow:hidden}
+.hero-emb{width:clamp(150px,40vw,240px);margin:0 auto 1.2rem;filter:drop-shadow(0 0 24px rgba(79,214,255,.4))}
+.hero-emb .ring{transform-origin:50% 50%;animation:spin 30s linear infinite}
+.hero-hi{font-family:var(--tech);font-weight:700;font-size:clamp(.6rem,2.6vw,.8rem);letter-spacing:.3em;text-transform:uppercase;color:var(--green2);margin-bottom:.4rem}
+.hero-name{font-family:var(--fun);font-size:clamp(3.4rem,20vw,9rem);line-height:.92;color:#fff;letter-spacing:.02em;padding:.06em .1em;
+  text-shadow:0 4px 0 var(--purple),0 8px 0 rgba(80,40,160,.5),0 0 30px rgba(124,58,237,.6)}
+.hero-age{display:inline-block;font-family:var(--fun);font-size:clamp(1.2rem,5vw,1.9rem);color:var(--space);background:linear-gradient(135deg,var(--green2),var(--green));
+  padding:.35em .9em;border-radius:999px;margin-top:.4rem;box-shadow:0 6px 0 #4e7d1f,0 0 24px rgba(139,195,74,.5);transform:rotate(-2deg)}
+.hero-slogan{font-family:var(--disp);font-weight:600;font-style:italic;font-size:clamp(1.1rem,4vw,1.7rem);color:var(--yellow);margin-top:1.4rem;text-shadow:0 0 16px rgba(255,210,63,.4)}
+.hero-meta{font-family:var(--tech);font-weight:500;font-size:clamp(.62rem,2.2vw,.8rem);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-top:1.5rem;line-height:2}
+.hero-meta b{color:var(--cyan)}
+.scue{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);font-family:var(--tech);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mist);display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.scue .arrow{width:1px;height:30px;background:linear-gradient(to bottom,var(--green),transparent);animation:sc 2s ease-in-out infinite}
+@keyframes sc{0%,100%{transform:scaleY(.3);opacity:.3;transform-origin:top}60%{transform:scaleY(1);opacity:1}}
+
+/* ---- COUNTDOWN ---- */
+.cd{background:linear-gradient(180deg,#0a1236,#0b1444)}
+.cgrid{display:flex;justify-content:center;gap:clamp(.4rem,1.8vw,1rem);flex-wrap:wrap;margin-top:2.4rem}
+.cu{flex:1 1 68px;min-width:0;max-width:110px;background:rgba(124,58,237,.12);border:1.5px solid rgba(160,107,255,.4);border-radius:16px;padding:clamp(.7rem,2.5vw,1.3rem) clamp(.2rem,1.2vw,.5rem);box-shadow:0 0 24px rgba(124,58,237,.15) inset}
+.cnum{font-family:var(--tech);font-weight:900;font-size:clamp(1.5rem,7vw,3rem);line-height:1;color:var(--green2);text-shadow:0 0 16px rgba(139,195,74,.5)}
+.clab{font-family:var(--disp);font-weight:500;font-size:clamp(.46rem,1.8vw,.64rem);letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-top:.5rem}
+
+/* ---- tarjeta detalles ---- */
+.card{background:linear-gradient(160deg,rgba(27,42,107,.6),rgba(11,16,48,.7));border:1.5px solid rgba(139,195,74,.35);border-radius:26px;
+  padding:clamp(1.8rem,5vw,2.8rem);max-width:520px;margin:2.4rem auto 0;box-shadow:0 20px 60px -20px rgba(0,0,0,.6),0 0 40px rgba(124,58,237,.12) inset}
+.card .ico{width:74px;margin:0 auto 1rem}
+.card .place{font-family:var(--fun);font-size:clamp(1.4rem,5vw,2rem);color:#fff;line-height:1.15;text-shadow:0 2px 0 var(--purple)}
+.card .addr{font-family:var(--disp);font-size:1.05rem;color:var(--mist);margin-top:.5rem}
+.card .rowline{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin:1.4rem 0}
+.card .rowline div{display:flex;flex-direction:column;gap:.2rem}
+.card .rl-lab{font-family:var(--tech);font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green2)}
+.card .rl-val{font-family:var(--disp);font-weight:600;font-size:1.3rem;color:var(--cyan)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--disp);font-weight:600;font-size:.95rem;
+  color:var(--space);background:linear-gradient(135deg,var(--green2),var(--green));padding:.85rem 1.8rem;border-radius:999px;
+  box-shadow:0 6px 0 #4e7d1f,0 10px 24px -8px rgba(139,195,74,.6);transition:transform .2s,box-shadow .2s;margin-top:.4rem}
+.btn:hover,.btn:active{transform:translateY(-2px);box-shadow:0 8px 0 #4e7d1f,0 14px 30px -8px rgba(139,195,74,.7)}
+.btn svg{width:18px;height:18px}
+.btn.purple{background:linear-gradient(135deg,var(--purple2),var(--purple));color:#fff;box-shadow:0 6px 0 #4c1d95,0 10px 24px -8px rgba(124,58,237,.6)}
+.btn.purple:hover{box-shadow:0 8px 0 #4c1d95,0 14px 30px -8px rgba(124,58,237,.7)}
+
+/* ---- plan de vuelo (timeline) ---- */
+.tl{max-width:520px;margin:2.6rem auto 0;text-align:left;position:relative;padding-left:8px}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--green),var(--purple),transparent)}
+.ti{display:flex;gap:1.1rem;padding-bottom:2rem;position:relative}
+.ti:last-child{padding-bottom:0}
+.ti .dot{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--space2);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 0 16px rgba(139,195,74,.4);z-index:1}
+.ti .tt{font-family:var(--tech);font-weight:700;font-size:1rem;color:var(--green2)}
+.ti .te{font-family:var(--disp);font-weight:600;font-size:1.1rem;color:#fff;margin-top:.1rem}
+.ti .tn{font-family:var(--disp);font-size:.9rem;color:var(--mist);margin-top:.1rem}
+
+/* ---- vestuario ---- */
+.suit{background:linear-gradient(180deg,#0b1444,#0a1030)}
+
+/* ---- RSVP ---- */
+.rsvp{background:radial-gradient(ellipse 120% 80% at 50% 0%,#17225f,#0a1030)}
+.rsvpbtns{display:flex;flex-direction:column;align-items:center;gap:1rem;margin-top:2rem}
+.rsvpnote{font-family:var(--disp);font-size:.95rem;color:var(--mist);margin-top:1.4rem}
+
+/* ---- footer ---- */
+footer{position:relative;z-index:1;text-align:center;padding:4rem 1.5rem 3.5rem;background:#05081e}
+.f-emb{width:90px;margin:0 auto 1.2rem;filter:drop-shadow(0 0 18px rgba(79,214,255,.4))}
+.f-name{font-family:var(--fun);font-size:1.7rem;color:#fff;text-shadow:0 2px 0 var(--purple)}
+.f-sub{font-family:var(--tech);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);margin-top:.8rem}
+</style>
+</head>
+<body class="locked">
+
+<div class="stars"></div><div class="stars2"></div><div class="stars3"></div>
+
+<!-- ══ PORTADA ══ -->
+<div id="splash">
+  <div class="launch-stage intro" id="launchStage" onclick="enterInvitation()">
+    <span class="lc-hi" id="lcHi">Transmisión de Star Command</span>
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="ring" cx="100" cy="100" r="92" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 10" opacity=".7"/>
+        <circle cx="100" cy="100" r="80" fill="#0e1642" stroke="#8bc34a" stroke-width="3"/>
+        <circle cx="100" cy="100" r="80" stroke="#a06bff" stroke-width="1" opacity=".5"/>
+        <circle cx="100" cy="100" r="46" fill="#7c3aed"/>
+        <ellipse cx="100" cy="100" rx="70" ry="20" stroke="#ffd23f" stroke-width="4" fill="none" transform="rotate(-20 100 100)"/>
+        <circle cx="84" cy="88" r="8" fill="#a06bff" opacity=".7"/>
+        <circle cx="118" cy="110" r="12" fill="#5a2bb8" opacity=".8"/>
+        <g transform="translate(100 100) rotate(-45)">
+          <path d="M0 -34 C10 -24 12 -8 12 4 L-12 4 C-12 -8 -10 -24 0 -34 Z" fill="#fff" stroke="#111a4d" stroke-width="2"/>
+          <circle cx="0" cy="-14" r="6" fill="#4fd6ff" stroke="#111a4d" stroke-width="2"/>
+          <path d="M-12 4 L-20 16 L-12 12 Z" fill="#ff4d5e"/>
+          <path d="M12 4 L20 16 L12 12 Z" fill="#ff4d5e"/>
+          <path d="M-6 12 L0 26 L6 12 Z" fill="#ffd23f"/>
+        </g>
+        <path d="M40 50 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" fill="#ffd23f"/>
+        <path d="M158 132 l1.6 4 4 1.6 -4 1.6 -1.6 4 -1.6 -4 -4 -1.6 4 -1.6 z" fill="#4fd6ff"/>
+      </svg>
+    </div>
+    <span class="lc-name" id="lcName">Invitado especial</span>
+    <p class="tap" id="tap">🚀 Toca para despegar</p>
+  </div>
+</div>
+
+<div id="progress"></div>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <a href="#inicio">Inicio</a>
+  <a href="#mision">Misión</a>
+  <a href="#plan">Plan</a>
+  <a href="#confirmar">Confirmar</a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="inicio">
+  <svg class="hero-emb rv" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <circle class="ring" cx="100" cy="100" r="90" stroke="#4fd6ff" stroke-width="1.5" stroke-dasharray="4 10" opacity=".6"/>
+    <circle cx="100" cy="100" r="60" fill="#7c3aed" opacity=".9"/>
+    <ellipse cx="100" cy="100" rx="88" ry="26" stroke="#ffd23f" stroke-width="4" fill="none" transform="rotate(-18 100 100)"/>
+    <circle cx="82" cy="86" r="10" fill="#a06bff"/>
+    <circle cx="120" cy="112" r="14" fill="#5a2bb8"/>
+    <path d="M150 46 l2.4 6 6 2.4 -6 2.4 -2.4 6 -2.4 -6 -6 -2.4 6 -2.4 z" fill="#ffd23f"/>
+    <path d="M44 150 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" fill="#8bc34a"/>
+  </svg>
+  <p class="hero-hi rv d1">Prepárate para la misión de</p>
+  <h1 class="hero-name rv d1" id="heroName">PIPE</h1>
+  <div class="rv d2"><span class="hero-age">¡Cumple 3 años!</span></div>
+  <p class="hero-slogan rv d3">¡Al infinito y más allá!</p>
+  <p class="hero-meta rv d4">🗓 <b>Sábado 8 de Agosto, 2026</b> · 4:30 p.m.<br>📍 <b>Sky Zone · Plaza Claro</b></p>
+  <div class="scue" aria-hidden="true"><span>Desliza</span><div class="arrow"></div></div>
+</section>
+
+<!-- ══ MISIÓN / DÓNDE Y CUÁNDO ══ -->
+<section class="mission" id="mision">
+  <div class="wrap rv">
+    <p class="cap">Detalles de la misión</p>
+    <h2 class="htitle">¿Dónde y cuándo?</h2>
+    <div class="card">
+      <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="26" r="18" stroke="#8bc34a" stroke-width="2.4"/>
+        <circle cx="32" cy="26" r="7" fill="#7c3aed"/>
+        <path d="M32 44 L32 58" stroke="#8bc34a" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M20 58 H44" stroke="#8bc34a" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M14 14 l1.6 4 4 1.6 -4 1.6 -1.6 4 -1.6 -4 -4 -1.6 4 -1.6 z" fill="#ffd23f"/>
+      </svg>
+      <p class="place">Sky Zone<br>Plaza Claro</p>
+      <div class="rowline">
+        <div><span class="rl-lab">Fecha</span><span class="rl-val">8 Ago 2026</span></div>
+        <div><span class="rl-lab">Hora</span><span class="rl-val">4:30 p.m.</span></div>
+      </div>
+      <a class="btn" href="https://maps.google.com/?q=Sky+Zone+Plaza+Claro+Bogota" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C8 2 5 5 5 9 c0 5.5 7 13 7 13 s7-7.5 7-13 c0-4-3-7-7-7Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+        Ver en mapa
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CUENTA REGRESIVA ══ -->
+<section class="cd" id="cuenta">
+  <div class="wrap rv">
+    <p class="cap">Cuenta regresiva</p>
+    <h2 class="htitle">Faltan para el despegue…</h2>
+    <div class="cgrid" id="clock">
+      <div class="cu"><div class="cnum" id="d">--</div><div class="clab">Días</div></div>
+      <div class="cu"><div class="cnum" id="h">--</div><div class="clab">Horas</div></div>
+      <div class="cu"><div class="cnum" id="m">--</div><div class="clab">Min</div></div>
+      <div class="cu"><div class="cnum" id="s">--</div><div class="clab">Seg</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PLAN DE VUELO ══ -->
+<section class="plan" id="plan">
+  <div class="wrap rv">
+    <p class="cap">Itinerario</p>
+    <h2 class="htitle">Plan de vuelo</h2>
+    <div class="tl">
+      <div class="ti rv"><div class="dot">🚀</div><div><p class="tt">4:30 p.m.</p><p class="te">Despegue</p><p class="tn">Llegada de los space rangers</p></div></div>
+      <div class="ti rv"><div class="dot">🤸</div><div><p class="tt">5:00 p.m.</p><p class="te">Salto galáctico</p><p class="tn">Trampolines y juegos</p></div></div>
+      <div class="ti rv"><div class="dot">🍕</div><div><p class="tt">6:00 p.m.</p><p class="te">Recarga de energía</p><p class="tn">Comida para astronautas</p></div></div>
+      <div class="ti rv"><div class="dot">🎂</div><div><p class="tt">6:30 p.m.</p><p class="te">¡Feliz cumple, Pipe!</p><p class="tn">Torta y canción</p></div></div>
+      <div class="ti rv"><div class="dot">⭐</div><div><p class="tt">7:00 p.m.</p><p class="te">Misión cumplida</p><p class="tn">Sorpresas y despedida</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VESTUARIO ══ -->
+<section class="suit" id="vestuario">
+  <div class="wrap rv">
+    <p class="cap">Código espacial</p>
+    <h2 class="htitle">Vístete de héroe</h2>
+    <p class="lead">¡Ven listo para la aventura! Trae tu mejor pinta de <b>astronauta</b>, <b>Space Ranger</b> o tu color favorito de galaxia. 👨‍🚀🪐</p>
+    <div class="orn"><span class="l"></span><span class="st">★</span><span class="l r"></span></div>
+  </div>
+</section>
+
+<!-- ══ CONFIRMAR ══ -->
+<section class="rsvp" id="confirmar">
+  <div class="wrap rv">
+    <p class="cap">Confirma tu misión</p>
+    <h2 class="htitle">¿Nos acompañas?</h2>
+    <p class="lead">¡Pipe te espera para esta aventura espacial! Por favor confirma tu asistencia con un toque por WhatsApp. 🚀</p>
+    <div class="rsvpbtns">
+      <a class="btn" id="rsvpBtn1" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        Confirmar · 313 888 4908
+      </a>
+      <a class="btn purple" id="rsvpBtn2" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        Confirmar · 350 685 4907
+      </a>
+    </div>
+    <p class="rsvpnote">Con un toque confírmanos por WhatsApp 💛</p>
+  </div>
+</section>
+
+<footer>
+  <svg class="f-emb" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <circle cx="100" cy="100" r="60" fill="#7c3aed" opacity=".9"/>
+    <ellipse cx="100" cy="100" rx="86" ry="26" stroke="#ffd23f" stroke-width="5" fill="none" transform="rotate(-18 100 100)"/>
+    <circle cx="82" cy="86" r="10" fill="#a06bff"/>
+  </svg>
+  <p class="f-name">¡Pipe cumple 3! 🚀</p>
+  <p class="f-sub">8 · Agosto · 2026 &nbsp;·&nbsp; Sky Zone Plaza Claro</p>
+</footer>
+
+<script>
+/* ─── Personalización por enlace (?invitado=Nombre) ─── */
+const GUEST = (function(){
+  const p = new URLSearchParams(location.search);
+  let name = (p.get('invitado') || '').trim();
+  const saludo = (p.get('saludo') || '').trim();
+  if (!name) return { name:'', greet:'¡Estás invitado!', plural:false, generic:true };
+  const low = name.toLowerCase();
+  const isGroup = /(^familia\b|\sy\s|\se\s|,|esposa|esposo|hij[ao]s?|amigos)/.test(low);
+  let greet = saludo || (isGroup ? '¡Están invitados!' : '¡Estás invitado!');
+  return { name, greet, plural:isGroup || /invitados/i.test(greet), generic:false };
+})();
+(function paint(){
+  const hi = document.getElementById('lcHi');
+  const nm = document.getElementById('lcName');
+  if (GUEST.generic){ nm.textContent = '¡Estás invitado!'; hi.textContent='Transmisión de Star Command'; }
+  else { hi.textContent = GUEST.greet; nm.textContent = GUEST.name; }
+})();
+
+/* ─── Secuencia de portada ─── */
+window.addEventListener('load', () => {
+  const st = document.getElementById('launchStage');
+  requestAnimationFrame(()=> st.classList.remove('intro'));
+  setTimeout(()=> st.classList.add('hi-in'), 500);
+  setTimeout(()=> st.classList.add('name-in'), 1000);
+  setTimeout(()=> document.getElementById('tap').classList.add('show'), 1600);
+});
+let opening=false;
+function enterInvitation(){
+  if(opening) return; opening=true;
+  const st=document.getElementById('launchStage');
+  st.classList.add('launch');
+  setTimeout(()=> document.getElementById('splash').classList.add('gone'), 850);
+  setTimeout(()=> document.body.classList.remove('locked'), 1000);
+}
+
+/* ─── Nav + progreso + activo ─── */
+const nav=document.getElementById('nav'), bar=document.getElementById('progress');
+const links=[...document.querySelectorAll('.nav a')];
+const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function onScroll(){
+  nav.classList.toggle('s', scrollY>50);
+  bar.style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';
+  const mid=scrollY+innerHeight*.35; let cur=targets[0];
+  for(const t of targets){ if(t.offsetTop<=mid) cur=t; }
+  links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur.id));
+}
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* ─── Reveal ─── */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ─── Cuenta regresiva ─── */
+const FIESTA=new Date(2026,7,8,16,30,0); // 7=agosto
+const $=id=>document.getElementById(id);
+function tick(){
+  let diff=Math.max(0,FIESTA-new Date());
+  const d=Math.floor(diff/864e5);diff-=d*864e5;
+  const h=Math.floor(diff/36e5);diff-=h*36e5;
+  const m=Math.floor(diff/6e4);diff-=m*6e4;
+  const s=Math.floor(diff/1e3);
+  const p=n=>String(n).padStart(2,'0');
+  $('d').textContent=d;$('h').textContent=p(h);$('m').textContent=p(m);$('s').textContent=p(s);
+}
+tick(); setInterval(tick,1000);
+
+/* ─── WhatsApp (a los dos números) ─── */
+const NUMS=['573138884908','573506854907'];
+const MSG = GUEST.generic
+  ? '¡Hola! Confirmo mi asistencia a la fiesta de cumpleaños de Pipe. 🚀'
+  : (GUEST.plural
+    ? `¡Hola! Somos ${GUEST.name} y confirmamos nuestra asistencia a la fiesta de Pipe. 🚀`
+    : `¡Hola! Soy ${GUEST.name} y confirmo mi asistencia a la fiesta de Pipe. 🚀`);
+const t=encodeURIComponent(MSG);
+const b1=$('rsvpBtn1'),b2=$('rsvpBtn2');
+if(b1) b1.href='https://wa.me/'+NUMS[0]+'?text='+t;
+if(b2) b2.href='https://wa.me/'+NUMS[1]+'?text='+t;
+</script>
+</body>
+</html>
